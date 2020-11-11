@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="form">
       <p>
         <mat-form-field>
           <input
@@ -27,6 +27,13 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Login</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="submit()"
+    >
+      Login
+    </button>
   </mat-card-actions>
 </mat-card>
