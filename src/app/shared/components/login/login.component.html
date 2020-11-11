@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form>
+      <p>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="Username"
+            formControlName="username"
+          />
+          <mat-error> Username is required </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+          />
+          <mat-error> Password is required </mat-error>
+        </mat-form-field>
+      </p>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Login</button>
+  </mat-card-actions>
+</mat-card>
