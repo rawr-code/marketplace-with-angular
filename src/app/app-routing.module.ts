@@ -7,6 +7,16 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'products',
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
+  },
 ];
 
 @NgModule({
