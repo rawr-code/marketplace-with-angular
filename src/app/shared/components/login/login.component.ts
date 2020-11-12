@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 
@@ -10,25 +10,27 @@ import { User } from '../../models/user';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
+
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   submit() {
     if (this.form.valid) {
-      console.log(this.form.value);
       this.validateLogin(this.form.value);
     }
   }
 
   private validateLogin(user: User) {
+    console.log('user', user);
     if (user.username === 'admin' && user.password === 'admin') {
-      this.router.navigate(['']);
+      // Redireccion: /products
+      this.router.navigate(['/products']);
     } else {
-      console.error('Invalid credentials');
+      console.error('Credenciales Invalidas');
     }
   }
 }
